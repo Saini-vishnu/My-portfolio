@@ -6,9 +6,149 @@
 
 body{
     font-family: Arial, sans-serif;
-    background-color:rgb(19, 0, 36);
+    background: linear-gradient(270deg, #0a0113, #00132b, #2b003d);
+    background-size: 600% 600%;
     color: white;
     line-height: 1.6;
     padding: 20px;
+    animation: gradientShift 15s ease infinite;
+    -webkit-animation: gradientShift 15s ease infinite;
 }
 
+.nav_bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav_link a{
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.nav_link a:hover,
+.nav_link a:focus{
+    color: rgb(107, 101, 101);
+    transform: translateY(-2px);
+    outline: none;
+}
+
+/* Generic page section container */
+.section{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 80vh;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.left{
+    width: 40%;
+    height: auto;
+}
+
+.right{
+    width: 40%;
+    height: auto;
+}
+
+.left h1{
+    font-size: 48px;
+}
+
+.left h1 span{
+    color: #00ffff;
+}
+
+.left p{
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.butn{
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 18px;
+    color: white;
+    background-color: #007070;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+/* Glowing button variant and hover/active states */
+.butn{
+    background: linear-gradient(90deg,#00c6ff,#0072ff);
+    box-shadow: 0 6px 18px rgba(0,114,255,0.12);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.butn:hover,
+.butn:focus{
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(0,114,255,0.28), 0 0 40px rgba(0,198,255,0.12);
+    outline: none;
+}
+
+.butn:active{
+    transform: translateY(0);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+/* Optional subtle pulsing glow when .glow is added */
+@keyframes butnPulse{
+    0%{box-shadow:0 8px 24px rgba(0,114,255,0.14),0 0 0 rgba(0,198,255,0);} 
+    50%{box-shadow:0 18px 48px rgba(0,114,255,0.26),0 0 48px rgba(0,198,255,0.14);} 
+    100%{box-shadow:0 8px 24px rgba(0,114,255,0.14),0 0 0 rgba(0,198,255,0);} 
+}
+.butn.glow{animation: butnPulse 3s ease-in-out infinite;}
+
+@media (prefers-reduced-motion: reduce){
+    .butn.glow{animation: none}
+    .butn{transition: none}
+}
+
+@media (max-width: 640px){
+    .section{
+        margin: 28px 16px;
+        padding: 24px 16px;
+        border-radius: 10px;
+    }
+    .section h2{font-size:22px}
+}
+
+@keyframes gradientShift{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body{
+        animation: none;
+        -webkit-animation: none;
+        background-size: cover;
+    }
+}
+
+/* Ensure images have no background and scale responsively */
+img{
+    background: transparent;
+    background-color: transparent;
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: none;
+}
