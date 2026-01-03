@@ -153,3 +153,60 @@ img{
     border: none;
 }
 
+/* Reusable box/card component */
+.box{
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 720px;
+    width: 100%;
+    margin: 12px auto;
+    box-shadow: 0 8px 24px rgba(2,6,23,0.6);
+    backdrop-filter: blur(6px) saturate(120%);
+    -webkit-backdrop-filter: blur(6px) saturate(120%);
+    transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
+}
+.box:hover,
+.box:focus-within{
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(2,6,23,0.75), 0 0 32px rgba(0,198,255,0.06);
+}
+
+@media (max-width: 640px){
+    .box{padding:16px; border-radius:10px}
+}
+
+/* Responsive adjustments for tablet and mobile */
+@media (max-width: 900px){
+    .nav_bar{flex-wrap:wrap; gap:12px}
+    .section{
+        flex-direction: column;
+        height: auto;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 20px;
+        padding: 40px 12px;
+    }
+    .left, .right{width: 100%}
+    .left h1{font-size: 40px}
+    .left p{font-size: 18px}
+    .right{display:flex; justify-content:center}
+}
+
+@media (max-width: 640px){
+    .left h1{font-size: 32px}
+    .left p{font-size: 16px}
+    .nav_link a{margin: 0 8px; font-size: 15px}
+    .butn{padding: 10px 18px; font-size: 16px}
+    .section{padding: 28px 10px}
+}
+
+@media (max-width: 420px){
+    .left h1{font-size: 26px}
+    .left p{font-size: 15px}
+    .section{padding: 20px 8px}
+    .box{padding: 12px}
+    .logo{font-size:20px}
+}
+
